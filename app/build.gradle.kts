@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.rpglineage"
+    namespace = "com.example.rpgjjbo"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.example.rpglineage"
+        applicationId = "com.example.rpgjjbo"
         minSdk = 24
         targetSdk = 33
         versionCode = 1

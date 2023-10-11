@@ -1,4 +1,4 @@
-package com.example.rpglineage;
+package com.example.rpgjjbo;
 
 import org.junit.Test;
 

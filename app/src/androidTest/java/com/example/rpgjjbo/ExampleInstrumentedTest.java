@@ -1,4 +1,4 @@
-package com.example.rpglineage;
+package com.example.rpgjjbo;
 
 import android.content.Context;
 
