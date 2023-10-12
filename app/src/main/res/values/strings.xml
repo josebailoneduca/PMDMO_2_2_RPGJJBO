@@ -1,4 +1,11 @@
 <resources>
-    <string name="app_name">RPG Lineage</string>
+    <string name="app_name">RPG JJBO</string>
     <string name="comenzar">Comenzar</string>
+    <string name="humano">Humano</string>
+    <string name="elfo">Elfo</string>
+    <string name="enano">Enano</string>
+    <string name="orco">Orco</string>
+    <string name="continuar">Continuar</string>
+    <string name="selecciona_tu_clase">Selecciona tu clase</string>
+    <string name="debes_elegir_una_clase">Debes elegir una clase</string>
 </resources>
