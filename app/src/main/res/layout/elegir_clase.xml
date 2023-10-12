@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_launcher_background">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fondo2" />
+
+    <TextView
+        android:id="@+id/tituloSeccion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:background="#CC001926"
+        android:fontFamily="@font/meat"
+        android:padding="10dp"
+        android:text="@string/selecciona_tu_clase"
+        android:textAlignment="center"
+        android:textColor="@color/primario_light"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupClase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/btnClaseContinuar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tituloSeccion">
+
+        <RadioButton
+            android:id="@+id/radioButtonHumano"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/meat"
+            android:text="@string/humano"
+            android:textColor="@color/primario_light"
+            android:textSize="50sp" />
+
+        <RadioButton
+            android:id="@+id/radioButtonElfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:buttonTint="@color/primario_light"
+            android:fontFamily="@font/meat"
+            android:text="@string/elfo"
+            android:textColor="@color/primario_light"
+            android:textSize="50sp" />
+
+        <RadioButton
+            android:id="@+id/radioButtonEnano"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:buttonTint="@color/primario_light"
+            android:fontFamily="@font/meat"
+            android:text="@string/enano"
+            android:textColor="@color/primario_light"
+            android:textSize="50sp" />
+
+        <RadioButton
+            android:id="@+id/radioButtonOrco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/primario_light"
+            android:fontFamily="@font/meat"
+            android:text="@string/orco"
+            android:textColor="@color/primario_light"
+            android:textSize="50sp" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnClaseContinuar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:text="@string/continuar"
+        app:icon="@android:drawable/ic_media_play"
+        app:iconGravity="textEnd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
