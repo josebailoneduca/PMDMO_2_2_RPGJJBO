@@ -60,6 +60,8 @@
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
+                android:layout_marginStart="5dp"
+
                 app:srcCompat="@drawable/salud"
                 app:tint="@color/primario_light" />
 
@@ -106,6 +108,8 @@
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
+                android:layout_marginStart="5dp"
+
                 app:srcCompat="@drawable/ataque_fisico"
                 app:tint="@color/primario_light" />
             <TextView
@@ -151,6 +155,8 @@
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
+                android:layout_marginStart="5dp"
+
                 app:srcCompat="@drawable/ataque_magico"
                 app:tint="@color/primario_light" />
             <TextView
@@ -196,6 +202,8 @@
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
+                android:layout_marginStart="5dp"
+
                 app:srcCompat="@drawable/defensa_fisica"
                 app:tint="@color/primario_light" />
             <TextView
@@ -240,6 +248,8 @@
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
+                android:layout_marginStart="5dp"
+
                 app:srcCompat="@drawable/defensa_magica"
                 app:tint="@color/primario_light" />
             <TextView
@@ -285,6 +295,8 @@
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
+                android:layout_marginStart="5dp"
+
                 app:srcCompat="@drawable/punteria"
                 app:tint="@color/primario_light" />
             <TextView

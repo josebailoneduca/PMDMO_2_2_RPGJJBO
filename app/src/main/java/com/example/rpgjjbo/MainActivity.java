@@ -32,10 +32,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.elegir_clase);
         Button btnClaseContinuar = findViewById(R.id.btnClaseContinuar);
         RadioGroup radioGroupClase = findViewById(R.id.radioGroupClase);
-        radioGroupClase.clearCheck();
-        radioGroupClase.setOnCheckedChangeListener((radioGroup, i) -> btnClaseContinuar.setEnabled(true));
-        btnClaseContinuar.setOnClickListener((view) -> {
+        RadioGroup radioGroupGenero = findViewById(R.id.radioGroupGenero);
 
+        radioGroupClase.clearCheck();
+        radioGroupGenero.clearCheck();
+
+        radioGroupClase.setOnCheckedChangeListener((radioGroup, i) -> {
+            if (radioGroupClase.getCheckedRadioButtonId()!=-1&&radioGroupGenero.getCheckedRadioButtonId()!=-1)
+                btnClaseContinuar.setEnabled(true);
+        });
+        radioGroupGenero.setOnCheckedChangeListener((radioGroup, i) -> {
+            if (radioGroupClase.getCheckedRadioButtonId()!=-1&&radioGroupGenero.getCheckedRadioButtonId()!=-1)
+                btnClaseContinuar.setEnabled(true);
+        });
+
+        btnClaseContinuar.setOnClickListener((view) -> {
             int claseSeleccionada = radioGroupClase.getCheckedRadioButtonId();
             if (claseSeleccionada == -1) {
                 muestraToast(getString(R.string.debes_elegir_una_clase));
@@ -49,6 +60,16 @@ public class MainActivity extends AppCompatActivity {
             } else if (claseSeleccionada == R.id.radioButtonOrco) {
                 this.personaje.setClase(EnumClassType.orco);
             }
+            int generoSeleccionado = radioGroupGenero.getCheckedRadioButtonId();
+            if (generoSeleccionado == -1) {
+                muestraToast(getString(R.string.debes_elegir_un_genero));
+                return;
+            } else if (generoSeleccionado == R.id.radioButtonMasculino) {
+                this.personaje.setGenero(EnumGender.masculino);
+            } else if (generoSeleccionado == R.id.radioButtonFemenino) {
+                this.personaje.setGenero(EnumGender.femenino);
+            }
+
             statsAleatoria();
         });
     }

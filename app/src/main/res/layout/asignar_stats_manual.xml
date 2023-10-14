@@ -75,10 +75,10 @@
 
             <ImageView
                 android:id="@+id/icoSalud"
-                android:layout_width="48dp"
+                android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
-
+                android:layout_marginStart="5dp"
                 android:layout_weight="0"
                 android:contentDescription="@string/salud"
                 app:srcCompat="@drawable/salud"
@@ -157,6 +157,8 @@
                 android:layout_width="48dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+
                 android:layout_weight="0"
                 android:contentDescription="@string/ataque_fisico"
                 app:srcCompat="@drawable/ataque_fisico"
@@ -236,6 +238,8 @@
                 android:layout_width="48dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+
                 android:layout_weight="0"
                 android:contentDescription="@string/ataque_magico"
                 app:srcCompat="@drawable/ataque_magico"
@@ -313,6 +317,8 @@
                 android:layout_width="48dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+
                 android:layout_weight="0"
                 android:contentDescription="@string/defensa_fisica"
                 app:srcCompat="@drawable/defensa_fisica"
@@ -391,6 +397,8 @@
                 android:layout_width="48dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+
                 android:layout_weight="0"
                 android:contentDescription="@string/defensa_magica"
                 app:srcCompat="@drawable/defensa_magica"
@@ -468,6 +476,8 @@
                 android:layout_width="48dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+
                 android:layout_weight="0"
                 android:contentDescription="@string/punteria"
                 app:srcCompat="@drawable/punteria"

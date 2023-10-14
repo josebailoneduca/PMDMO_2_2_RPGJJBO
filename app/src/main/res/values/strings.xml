@@ -5,7 +5,8 @@
     <!-- intro-->
     <string name="comenzar">Comenzar</string>
     <!-- seleccion de clase -->
-    <string name="selecciona_tu_clase">Selecciona tu clase</string>
+    <string name="selecciona_clase">Selecciona una Clase</string>
+    <string name="selecciona_genero">Selecciona un Género</string>
     <string name="debes_elegir_una_clase">Debes elegir una clase</string>
     <!--razas y generos-->
     <string name="humano">Humano</string>
@@ -45,4 +46,5 @@
     <string name="explicacion_caract_manuales">Asigna puntos a las características que quieras\n(Máximo 25)</string>
     <string name="puntos_restantes">Puntos restantes:</string>
     <string name="sumar_punto">Sumar punto</string>
+    <string name="debes_elegir_un_genero">Debes elegir un género\n</string>
 </resources>

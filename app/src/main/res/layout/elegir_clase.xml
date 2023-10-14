@@ -25,7 +25,7 @@
         android:background="#CC001926"
         android:fontFamily="@font/meat"
         android:padding="10dp"
-        android:text="@string/selecciona_tu_clase"
+        android:text="@string/selecciona_clase"
         android:textAlignment="center"
         android:textColor="@color/primario_light"
         android:textSize="34sp"
@@ -37,7 +37,7 @@
         android:id="@+id/radioGroupClase"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/btnClaseContinuar"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tituloSeccion">
@@ -50,7 +50,7 @@
             android:fontFamily="@font/meat"
             android:text="@string/humano"
             android:textColor="@color/primario_light"
-            android:textSize="50sp" />
+            android:textSize="40sp" />
 
         <RadioButton
             android:id="@+id/radioButtonElfo"
@@ -61,7 +61,7 @@
             android:fontFamily="@font/meat"
             android:text="@string/elfo"
             android:textColor="@color/primario_light"
-            android:textSize="50sp" />
+            android:textSize="40sp" />
 
         <RadioButton
             android:id="@+id/radioButtonEnano"
@@ -72,7 +72,7 @@
             android:fontFamily="@font/meat"
             android:text="@string/enano"
             android:textColor="@color/primario_light"
-            android:textSize="50sp" />
+            android:textSize="40sp" />
 
         <RadioButton
             android:id="@+id/radioButtonOrco"
@@ -82,7 +82,61 @@
             android:fontFamily="@font/meat"
             android:text="@string/orco"
             android:textColor="@color/primario_light"
+            android:textSize="40sp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tituloSeccion2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="#CC001926"
+        android:fontFamily="@font/meat"
+        android:padding="10dp"
+        android:text="@string/selecciona_genero"
+        android:textAlignment="center"
+        android:textColor="@color/primario_light"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupClase" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupGenero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tituloSeccion2">
+
+        <RadioButton
+            android:id="@+id/radioButtonMasculino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:drawableRight="@drawable/maleicon"
+            android:drawableTint="@color/primario_light"
+            android:fontFamily="@font/meat"
+            android:textColor="@color/primario_light"
             android:textSize="50sp" />
+
+        <RadioButton
+            android:id="@+id/radioButtonFemenino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="20dp"
+            android:buttonTint="@color/primario_light"
+            android:drawableRight="@drawable/femaleicon"
+            android:drawableTint="@color/primario_light"
+            android:fontFamily="@font/meat"
+            android:textColor="@color/primario_light"
+            android:textSize="50sp" />
+
     </RadioGroup>
 
     <Button
