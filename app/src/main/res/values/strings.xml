@@ -47,4 +47,9 @@
     <string name="puntos_restantes">Puntos restantes:</string>
     <string name="sumar_punto">Sumar punto</string>
     <string name="debes_elegir_un_genero">Debes elegir un género\n</string>
+    <string name="nombre_y_descripcion">Nombre y descripción</string>
+    <string name="elije_un_nombre">Elije un nombre</string>
+    <string name="descripcion">Descripción</string>
+    <string name="siguiente_avatar">Siguiente avatar</string>
+    <string name="avatar_anterior">Avatar anterior</string>
 </resources>

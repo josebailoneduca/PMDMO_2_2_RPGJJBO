@@ -22,7 +22,7 @@
         android:id="@+id/tituloSeccion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="16dp"
         android:background="@color/turquesaTransparente"
         android:fontFamily="@font/meat"
         android:padding="10dp"
@@ -63,7 +63,8 @@
                 android:layout_marginStart="5dp"
 
                 app:srcCompat="@drawable/salud"
-                app:tint="@color/primario_light" />
+                app:tint="@color/primario_light"
+                android:contentDescription="@string/salud" />
 
             <TextView
                 android:id="@+id/lbSalud"
@@ -107,9 +108,10 @@
                 android:id="@+id/icoAtaqueFisico"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0"
                 android:layout_marginStart="5dp"
+                android:layout_weight="0"
 
+                android:contentDescription="@string/ataque_fisico"
                 app:srcCompat="@drawable/ataque_fisico"
                 app:tint="@color/primario_light" />
             <TextView
@@ -154,9 +156,10 @@
                 android:id="@+id/icoAtaqueMagico"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0"
                 android:layout_marginStart="5dp"
+                android:layout_weight="0"
 
+                android:contentDescription="@string/ataque_magico"
                 app:srcCompat="@drawable/ataque_magico"
                 app:tint="@color/primario_light" />
             <TextView
@@ -201,9 +204,10 @@
                 android:id="@+id/icoDefensaFisica"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0"
                 android:layout_marginStart="5dp"
+                android:layout_weight="0"
 
+                android:contentDescription="@string/defensa_fisica"
                 app:srcCompat="@drawable/defensa_fisica"
                 app:tint="@color/primario_light" />
             <TextView
@@ -251,7 +255,8 @@
                 android:layout_marginStart="5dp"
 
                 app:srcCompat="@drawable/defensa_magica"
-                app:tint="@color/primario_light" />
+                app:tint="@color/primario_light"
+                android:contentDescription="@string/defensa_magica" />
             <TextView
                 android:id="@+id/lbDefensaMagica"
                 android:layout_width="wrap_content"
@@ -298,7 +303,8 @@
                 android:layout_marginStart="5dp"
 
                 app:srcCompat="@drawable/punteria"
-                app:tint="@color/primario_light" />
+                app:tint="@color/primario_light"
+                android:contentDescription="@string/punteria" />
             <TextView
                 android:id="@+id/lbPunteria"
                 android:layout_width="wrap_content"
@@ -394,13 +400,13 @@
         app:icon="@drawable/dice_black"
         app:iconGravity="textEnd"
         app:iconSize="60dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnStatsRandomContinuar"
+        app:layout_constraintBottom_toTopOf="@+id/btnNombreContinuar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
 
     <Button
-        android:id="@+id/btnStatsRandomContinuar"
+        android:id="@+id/btnNombreContinuar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"

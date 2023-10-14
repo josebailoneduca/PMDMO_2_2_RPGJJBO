@@ -22,7 +22,7 @@
         android:id="@+id/tituloSeccion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="16dp"
         android:background="@color/turquesaTransparente"
         android:fontFamily="@font/meat"
         android:padding="10dp"

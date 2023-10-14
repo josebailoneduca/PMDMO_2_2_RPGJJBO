@@ -2,18 +2,25 @@ package com.example.rpgjjbo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.media.Image;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.InputType;
+import android.text.TextWatcher;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements TextWatcher {
 
    private Personaje personaje;
     @Override
@@ -74,10 +81,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //STATS ALEATORIOS
     private void statsAleatoria() {
         setContentView(R.layout.asignar_stats_random);
         Button btnLanzarDados = findViewById(R.id.btnLanzarDados);
-        Button btnContinuar =findViewById(R.id.btnStatsRandomContinuar);
+        Button btnContinuar =findViewById(R.id.btnNombreContinuar);
         TextView lbValTiradas = findViewById(R.id.lbValTiradas);
         actualizarEtiquetasStats();
         lbValTiradas.setText(""+personaje.getIntentosStatsAzar());
@@ -109,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //STATS MANUAL
     private void statsManual() {
         setContentView(R.layout.asignar_stats_manual);
         Button btnContinuar =findViewById(R.id.btnStatsManualContinuar);
@@ -141,20 +150,24 @@ public class MainActivity extends AppCompatActivity {
         btnStatPunteria.setOnClickListener(view -> {
             aumentaStatManual(personaje.aumentaPunteria(),view,botonesManuales);
         });
+
+        btnContinuar.setOnClickListener(view -> avatarNombreDescripcion());
     }
+
+
 
     private void aumentaStatManual(boolean exito, View view, ImageButton[] botonesManuales) {
         if(!exito){
             view.setEnabled(false);
             ((ImageButton)view).setColorFilter(R.color.black);
         }
-        actualizaManual();
-        actualizaBotonesManuales(botonesManuales);
+        actualizaStatsManual();
+        actualizaBotonesStatsManual(botonesManuales);
     }
 
-    private void actualizaBotonesManuales(ImageButton[] botonesManuales) {
+    private void actualizaBotonesStatsManual(ImageButton[] botonesStatsManual) {
         if (this.personaje.getPuntosStatManuales()==0){
-            for (ImageButton btn:botonesManuales) {
+            for (ImageButton btn: botonesStatsManual) {
             btn.setEnabled(false);
             btn.setColorFilter(R.color.black);
             }
@@ -162,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void actualizaManual(){
+    private void actualizaStatsManual(){
         actualizarEtiquetasStats();
         actualizarBarrasStats();
     }
@@ -182,11 +195,70 @@ public class MainActivity extends AppCompatActivity {
         progressBarPunteria.setProgress(this.personaje.getStat_punteria());
 
         TextView lbValPuntosRestantes = findViewById(R.id.lbValPuntosRestantes);
-        lbValPuntosRestantes.setText(""+personaje.getPuntosStatManuales());
+        if (lbValPuntosRestantes!=null)
+            lbValPuntosRestantes.setText(""+personaje.getPuntosStatManuales());
     }
+
+
+
+    //AVATAR NOMBRE DESCRIPCION
+    private void avatarNombreDescripcion() {
+        setContentView(R.layout.nombre_descripcion);
+        ImageButton btnAnterior= findViewById(R.id.btnAvatarAnterior);
+        ImageButton btnPosterior= findViewById(R.id.btnAvatarPosterior);
+        ImageView imgAvatar = findViewById(R.id.imgAvatar);
+
+        SelectorAvatar selectorAvatar=new SelectorAvatar(btnAnterior,btnPosterior,imgAvatar,personaje,this);
+        Button btnNombreContinuar = findViewById(R.id.btnNombreContinuar);
+        btnNombreContinuar.setEnabled(false);
+        EditText inputNombre = findViewById(R.id.inputNombre);
+        EditText inputDescripcion = findViewById(R.id.inputDescripcion);
+        inputDescripcion.setRawInputType(InputType.TYPE_CLASS_TEXT);
+        inputDescripcion.addTextChangedListener(this);
+         ImageView fondoNombre= findViewById(R.id.fondoNombre);
+        fondoNombre.setOnTouchListener((view, motionEvent) -> {
+             InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
+             inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            return false;
+        });
+        inputNombre.setOnFocusChangeListener((view, b) -> {});
+        inputNombre.setOnEditorActionListener((textView, i, keyEvent) -> {
+            if (i == EditorInfo.IME_ACTION_DONE) {
+                if (inputNombre.getText().length()>0&&inputDescripcion.getText().length()>0)
+                    btnNombreContinuar.setEnabled(true);
+            }
+            return false;
+        });
+        inputDescripcion.setOnEditorActionListener((textView, i, keyEvent) -> {
+            if (i == EditorInfo.IME_ACTION_DONE) {
+                if (inputNombre.getText().length()>0&&inputDescripcion.getText().length()>0)
+                    btnNombreContinuar.setEnabled(true);
+            }
+            return false;
+        });
+
+    }
+
+
 
     private void muestraToast(String msg) {
         Toast t = Toast.makeText(this, msg, Toast.LENGTH_LONG);
         t.show();
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable editable) {
+        TextView lbCharRestantes = findViewById(R.id.lbCharRestantes);
+        lbCharRestantes.setText("("+(140-editable.length())+")");
     }
 }
