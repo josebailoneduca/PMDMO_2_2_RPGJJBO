@@ -1,11 +1,48 @@
 <resources>
     <string name="app_name">RPG JJBO</string>
+    <!-- general -->
+    <string name="continuar">Continuar</string>
+    <!-- intro-->
     <string name="comenzar">Comenzar</string>
+    <!-- seleccion de clase -->
+    <string name="selecciona_tu_clase">Selecciona tu clase</string>
+    <string name="debes_elegir_una_clase">Debes elegir una clase</string>
+    <!--razas y generos-->
     <string name="humano">Humano</string>
     <string name="elfo">Elfo</string>
     <string name="enano">Enano</string>
     <string name="orco">Orco</string>
-    <string name="continuar">Continuar</string>
-    <string name="selecciona_tu_clase">Selecciona tu clase</string>
-    <string name="debes_elegir_una_clase">Debes elegir una clase</string>
+    <string name="femenino">Femenino</string>
+    <string name="masculino">Masculino</string>
+    <!-- traits -->
+    <string name="berserker">Berserker</string>
+    <string name="berserker_desc">Realizará acciones de combate automaticamentes sin recibir ordenes del jugador.</string>
+    <string name="cauteloso">Cautela</string>
+    <string name="cauteloso_desc">Tendrá cautela en combate, con un punto de cobardía, lo que le hace sufrir menos daño en combate cuerpo a cuerpo</string>
+    <string name="conductor_otto">Conductor Otto</string>
+    <string name="conductor_otto_desc">Las pociones de recuperacion de maná y vida son más efectivas.</string>
+    <string name="concentrado">Concentración</string>
+    <string name="concentrado_desc">Su capapcidad de concentración incrementa la velocidad de ataque y la puntería.</string>
+    <string name="honesto">Honestidad</string>
+    <string name="honesto_desc">Mejores recompensas en las misiones y menores precios en la tienda del clan.</string>
+    <string name="rapido">Rápidez</string>
+    <string name="rapido_desc">Sus pies de gacela le permiten andar y atacar más rápido.</string>
+    <string name="musculoso">Musuloso</string>
+    <string name="musculoso_desc">Cual quier cosa que requiera fuerza se le dará bien</string>
+    <string name="empollon">Empollón</string>
+    <string name="empollon_desc">Aprovecha las acciones para ganar mucha más experiencia</string>
+    <!--stats-->
+    <string name="caracter_sticas_aleatorias">Características Aleatorias</string>
+    <string name="ataque_magico">Ataque Mágico</string>
+    <string name="defensa_fisica">Defensa Física</string>
+    <string name="punteria">Puntería</string>
+    <string name="ataque_fisico">Ataque Físico</string>
+    <string name="defensa_magica">Defensa Mágica</string>
+    <string name="salud">Salud</string>
+    <string name="caracter_sticas_manuales">Características Manuales</string>
+    <string name="tiradas_restantes">Tiradas restantes:</string>
+    <string name="lanzar_dados">Lanzar Dados</string>
+    <string name="explicacion_caract_manuales">Asigna puntos a las características que quieras\n(Máximo 25)</string>
+    <string name="puntos_restantes">Puntos restantes:</string>
+    <string name="sumar_punto">Sumar punto</string>
 </resources>

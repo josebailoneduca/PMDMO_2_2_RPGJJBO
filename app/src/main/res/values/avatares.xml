@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="razas">
-        <item>@string/humano</item>
-        <item>@string/elfo</item>
-        <item>@string/enano</item>
-        <item>@string/orco</item>
-    </array>
     <array name="avatares">
         <!--humano-->
         <item>@drawable/h_m_1</item>

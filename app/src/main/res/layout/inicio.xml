@@ -22,7 +22,7 @@
         android:id="@+id/btnInicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="150dp"
+        android:layout_marginBottom="50dp"
         android:text="@string/comenzar"
         app:layout_constraintBottom_toBottomOf="@+id/imagenfondo"
         app:layout_constraintEnd_toEndOf="parent"

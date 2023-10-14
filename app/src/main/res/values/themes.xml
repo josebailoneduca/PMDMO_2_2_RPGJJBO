@@ -5,7 +5,9 @@
         <item name="colorPrimary">@color/primario</item>
         <item name="colorSecondary">@color/secundario</item>
         <item name="android:windowSplashScreenBackground">@color/secundario</item>
-
+        <item name="android:navigationBarColor">
+            @color/primario
+        </item>
     </style>
 
     <style name="Theme.RPGJJBO" parent="Base.Theme.RPGJJBO" />
