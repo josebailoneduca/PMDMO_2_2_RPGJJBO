@@ -7,5 +7,6 @@
     <color name="primario_light">#F1B645</color>
     <color name="verde_claro">#FF27FF30</color>
     <color name="rojo">#FF0000</color>
+    <color name="rojo_oscuro">#2C1919</color>
     <color name="turquesaTransparente">#CC001926</color>
 </resources>

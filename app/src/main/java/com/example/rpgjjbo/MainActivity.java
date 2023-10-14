@@ -2,8 +2,8 @@ package com.example.rpgjjbo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.media.Image;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputType;
@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -28,16 +29,14 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.inicio);
         Button btnInicio = findViewById(R.id.btnInicio);
-        btnInicio.setOnClickListener(view -> {
-                this.personaje = new Personaje();
-                elijeClase();
-        });
+        btnInicio.setOnClickListener(view -> elijeClase());
     }
 
     // ELEGIR CLASE
     private void elijeClase() {
+        this.personaje = new Personaje();
         setContentView(R.layout.elegir_clase);
-        Button btnClaseContinuar = findViewById(R.id.btnClaseContinuar);
+        Button btnClaseContinuar = findViewById(R.id.btnRasgosContinuar);
         RadioGroup radioGroupClase = findViewById(R.id.radioGroupClase);
         RadioGroup radioGroupGenero = findViewById(R.id.radioGroupGenero);
 
@@ -82,6 +81,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
     }
 
     //STATS ALEATORIOS
+    @SuppressLint("SetTextI18n")
     private void statsAleatoria() {
         setContentView(R.layout.asignar_stats_random);
         Button btnLanzarDados = findViewById(R.id.btnLanzarDados);
@@ -101,6 +101,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
         btnContinuar.setOnClickListener(view -> statsManual());
     }
 
+    @SuppressLint("SetTextI18n")
     private void actualizarEtiquetasStats() {
         TextView lbValSalud = findViewById(R.id.lbValSalud);
         TextView lbValAtaqueFisico = findViewById(R.id.lbValAtaqueFisico);
@@ -114,7 +115,6 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
         lbValDefensaFisica.setText(""+personaje.getStat_defensa_fisica());
         lbValDefensaMagica.setText(""+personaje.getStat_defensa_magica());
         lbValPunteria.setText(""+personaje.getStat_punteria());
-
     }
 
     //STATS MANUAL
@@ -179,6 +179,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
         actualizarEtiquetasStats();
         actualizarBarrasStats();
     }
+    @SuppressLint("SetTextI18n")
     private void actualizarBarrasStats() {
         ProgressBar progressBarSalud = findViewById(R.id.progressBarSalud);
         ProgressBar progressBarAtaqueFisico = findViewById(R.id.progressBarAtaqueFisico);
@@ -202,43 +203,180 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
 
 
     //AVATAR NOMBRE DESCRIPCION
+    @SuppressLint("ClickableViewAccessibility")
     private void avatarNombreDescripcion() {
         setContentView(R.layout.nombre_descripcion);
         ImageButton btnAnterior= findViewById(R.id.btnAvatarAnterior);
         ImageButton btnPosterior= findViewById(R.id.btnAvatarPosterior);
         ImageView imgAvatar = findViewById(R.id.imgAvatar);
-
-        SelectorAvatar selectorAvatar=new SelectorAvatar(btnAnterior,btnPosterior,imgAvatar,personaje,this);
         Button btnNombreContinuar = findViewById(R.id.btnNombreContinuar);
-        btnNombreContinuar.setEnabled(false);
         EditText inputNombre = findViewById(R.id.inputNombre);
         EditText inputDescripcion = findViewById(R.id.inputDescripcion);
+        ImageView fondoNombre= findViewById(R.id.fondoNombre);
+
+        SelectorAvatar selectorAvatar=new SelectorAvatar(btnAnterior,btnPosterior,imgAvatar,personaje,this);
+
+        btnNombreContinuar.setEnabled(false);
         inputDescripcion.setRawInputType(InputType.TYPE_CLASS_TEXT);
         inputDescripcion.addTextChangedListener(this);
-         ImageView fondoNombre= findViewById(R.id.fondoNombre);
+
         fondoNombre.setOnTouchListener((view, motionEvent) -> {
              InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
              inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            if (inputNombre.getText().length()>0&&inputDescripcion.getText().length()>0)
+                btnNombreContinuar.setEnabled(true);
+            else
+                btnNombreContinuar.setEnabled(false);
             return false;
         });
+
         inputNombre.setOnFocusChangeListener((view, b) -> {});
+
         inputNombre.setOnEditorActionListener((textView, i, keyEvent) -> {
             if (i == EditorInfo.IME_ACTION_DONE) {
                 if (inputNombre.getText().length()>0&&inputDescripcion.getText().length()>0)
                     btnNombreContinuar.setEnabled(true);
+                else
+                    btnNombreContinuar.setEnabled(false);
             }
             return false;
         });
+
         inputDescripcion.setOnEditorActionListener((textView, i, keyEvent) -> {
             if (i == EditorInfo.IME_ACTION_DONE) {
                 if (inputNombre.getText().length()>0&&inputDescripcion.getText().length()>0)
                     btnNombreContinuar.setEnabled(true);
+                else
+                    btnNombreContinuar.setEnabled(false);
             }
             return false;
         });
+        btnNombreContinuar.setOnClickListener(view -> {
+            personaje.setNombre(inputNombre.getText().toString());
+            personaje.setBiografia(inputDescripcion.getText().toString());
+            elijeRasgos();
+        });
+    }
+
+    private void elijeRasgos() {
+        setContentView(R.layout.rasgos);
+        CheckBox [] btnRasgos = new CheckBox[8];
+        btnRasgos[0]=findViewById(R.id.inputBerserker);
+        btnRasgos[1]=findViewById(R.id.inputCauteloso);
+        btnRasgos[2]=findViewById(R.id.inputConductorOtto);
+        btnRasgos[3]=findViewById(R.id.inputConcentrado);
+        btnRasgos[4]=findViewById(R.id.inputHonesto);
+        btnRasgos[5]=findViewById(R.id.inputRapido);
+        btnRasgos[6]=findViewById(R.id.inputMusculoso);
+        btnRasgos[7]=findViewById(R.id.inputEmpollon);
+        for (CheckBox c:btnRasgos) {
+            c.setOnCheckedChangeListener((compoundButton, b) -> manejadorCheckRasgos(btnRasgos));
+        }
+
+        ImageButton[]btnInfoRasgos = new ImageButton[8];
+        btnInfoRasgos[0]=findViewById(R.id.btnInfoBerserker);
+        btnInfoRasgos[1]=findViewById(R.id.btnInfoCauteloso);
+        btnInfoRasgos[2]=findViewById(R.id.btnInfoConductorOtto);
+        btnInfoRasgos[3]=findViewById(R.id.btnInfoConcentrado);
+        btnInfoRasgos[4]=findViewById(R.id.btnInfoHonesto);
+        btnInfoRasgos[5]=findViewById(R.id.btnInfoRapido);
+        btnInfoRasgos[6]=findViewById(R.id.btnInfoMusucloso);
+        btnInfoRasgos[7]=findViewById(R.id.btnInfoEmpollon);
+        for (ImageButton i:btnInfoRasgos) {
+            i.setOnClickListener(view -> manejadorInfoRasgos(view,btnInfoRasgos));
+        }
+
+
+
 
     }
 
+    private void manejadorCheckRasgos(CheckBox[] btnRasgos) {
+        personaje.resetTraits();
+        for(int i=0;i<btnRasgos.length;i++){
+            if(btnRasgos[i].isChecked()) {
+                btnRasgos[i].setTextColor(getColor(R.color.verde_claro));
+                switch (i) {
+                    case 0:
+                        personaje.addTrait(EnumTrait.berserker);
+                        break;
+                    case 1:
+                        personaje.addTrait(EnumTrait.cauteloso);
+                        break;
+                    case 2:
+                        personaje.addTrait(EnumTrait.conductor_otto);
+                        break;
+                    case 3:
+                        personaje.addTrait(EnumTrait.concentrado);
+                        break;
+                    case 4:
+                        personaje.addTrait(EnumTrait.honesto);
+                        break;
+                    case 5:
+                        personaje.addTrait(EnumTrait.rapido);
+                        break;
+                    case 6:
+                        personaje.addTrait(EnumTrait.musculoso);
+                        break;
+                    case 7:
+                        personaje.addTrait(EnumTrait.empollon);
+                        break;
+                }
+            }else{
+                btnRasgos[i].setTextColor(getColor(R.color.white));
+            }
+        }
+        //si hemos llegado a 3 marcados entonces desactivamos el resto
+        if (personaje.getTraits().size()==3){
+            for(int i=0;i<btnRasgos.length;i++){
+                if (!btnRasgos[i].isChecked()) {
+                    btnRasgos[i].setEnabled(false);
+                    btnRasgos[i].setTextColor(getColor(R.color.rojo_oscuro));
+                }
+            }
+
+            findViewById(R.id.btnRasgosContinuar).setEnabled(true);
+            //en caso contrario los habilitamos todos
+        }else {
+            for (int i = 0; i < btnRasgos.length; i++) {
+                btnRasgos[i].setEnabled(true);
+            }
+            findViewById(R.id.btnRasgosContinuar).setEnabled(false);
+        }
+    }
+
+
+    private void manejadorInfoRasgos(View view,ImageButton[]botones) {
+        for (int i=0;i<botones.length;i++){
+            if (view.equals(botones[i]))
+                switch (i){
+                    case 0:
+                        muestraToast(getString(R.string.berserker_desc));
+                        break;
+                    case 1:
+                        muestraToast(getString(R.string.cauteloso_desc));
+                        break;
+                    case 2:
+                        muestraToast(getString(R.string.conductor_otto_desc));
+                        break;
+                    case 3:
+                        muestraToast(getString(R.string.concentrado_desc));
+                        break;
+                    case 4:
+                        muestraToast(getString(R.string.honesto_desc));
+                        break;
+                    case 5:
+                        muestraToast(getString(R.string.rapido_desc));
+                        break;
+                    case 6:
+                        muestraToast(getString(R.string.musculoso_desc));
+                        break;
+                    case 7:
+                        muestraToast(getString(R.string.empollon_desc));
+                        break;
+                }
+        }
+    }
 
 
     private void muestraToast(String msg) {

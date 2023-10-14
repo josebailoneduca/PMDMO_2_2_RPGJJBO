@@ -169,6 +169,10 @@ public class Personaje {
         return traits;
     }
 
+    public void resetTraits(){
+        this.traits=new ArrayList<EnumTrait>();
+    }
+
     public int randomStats() {
         if (this.intentosStatsAzar == 0)
             return 0;

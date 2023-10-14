@@ -17,19 +17,19 @@
     <string name="masculino">Masculino</string>
     <!-- traits -->
     <string name="berserker">Berserker</string>
-    <string name="berserker_desc">Realizará acciones de combate automaticamentes sin recibir ordenes del jugador.</string>
+    <string name="berserker_desc">Atacará automaticamentes sin recibir ordenes del jugador.</string>
     <string name="cauteloso">Cautela</string>
-    <string name="cauteloso_desc">Tendrá cautela en combate, con un punto de cobardía, lo que le hace sufrir menos daño en combate cuerpo a cuerpo</string>
+    <string name="cauteloso_desc">Cautela al punto de cobardía lo que le hace sufrir menos daño en combate</string>
     <string name="conductor_otto">Conductor Otto</string>
     <string name="conductor_otto_desc">Las pociones de recuperacion de maná y vida son más efectivas.</string>
     <string name="concentrado">Concentración</string>
-    <string name="concentrado_desc">Su capapcidad de concentración incrementa la velocidad de ataque y la puntería.</string>
+    <string name="concentrado_desc">Su concentración incrementa la velocidad de ataque y la puntería.</string>
     <string name="honesto">Honestidad</string>
     <string name="honesto_desc">Mejores recompensas en las misiones y menores precios en la tienda del clan.</string>
     <string name="rapido">Rápidez</string>
     <string name="rapido_desc">Sus pies de gacela le permiten andar y atacar más rápido.</string>
     <string name="musculoso">Musuloso</string>
-    <string name="musculoso_desc">Cual quier cosa que requiera fuerza se le dará bien</string>
+    <string name="musculoso_desc">Cualquier cosa que requiera fuerza se le dará bien</string>
     <string name="empollon">Empollón</string>
     <string name="empollon_desc">Aprovecha las acciones para ganar mucha más experiencia</string>
     <!--stats-->
@@ -52,4 +52,7 @@
     <string name="descripcion">Descripción</string>
     <string name="siguiente_avatar">Siguiente avatar</string>
     <string name="avatar_anterior">Avatar anterior</string>
+    <string name="selecciona_3_rasgos_para_el_personaje">Selecciona 3 rasgos para el personaje</string>
+    <string name="informacion">Informacion</string>
+    <string name="selecciona_rasgos">Selecciona Rasgos</string>
 </resources>
