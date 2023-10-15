@@ -10,8 +10,8 @@ public enum EnumTrait {
     musculoso(R.string.musculoso,R.string.musculoso_desc),
     empollon(R.string.empollon,R.string.empollon_desc);
 
-    int nombre;
-    int descripcion;
+    final int nombre;
+    final int descripcion;
     EnumTrait(int nombre, int descripcion) {
         this.nombre=nombre;
         this.descripcion=descripcion;

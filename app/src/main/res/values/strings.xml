@@ -55,4 +55,7 @@
     <string name="selecciona_3_rasgos_para_el_personaje">Selecciona 3 rasgos para el personaje</string>
     <string name="informacion">Informacion</string>
     <string name="selecciona_rasgos">Selecciona Rasgos</string>
+    <string name="avatar">Avatar</string>
+    <string name="crear_nuevo_personaje">Crear nuevo personaje</string>
+    <string name="crear_nuevo">Crear nuevo</string>
 </resources>

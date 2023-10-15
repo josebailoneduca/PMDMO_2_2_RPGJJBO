@@ -1,7 +1,5 @@
 package com.example.rpgjjbo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
@@ -20,6 +18,10 @@ import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements TextWatcher {
 
@@ -132,24 +134,12 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
         actualizarBarrasStats();
         ImageButton[] botonesManuales=new ImageButton[]{btnStatSalud,btnStatAtaqueFisico,btnStatAtaqueMagico,btnStatDefensaFisica,btnStatDefensaMagica,btnStatPunteria};
         //eventos
-        btnStatSalud.setOnClickListener(view -> {
-            aumentaStatManual(personaje.aumentaSalud(),view,botonesManuales);
-        });
-        btnStatAtaqueFisico.setOnClickListener(view -> {
-            aumentaStatManual(personaje.aumentaAtaqueFisico(),view,botonesManuales);
-        });
-        btnStatAtaqueMagico.setOnClickListener(view -> {
-            aumentaStatManual(personaje.aumentaAtaqueMagico(),view,botonesManuales);
-        });
-        btnStatDefensaFisica.setOnClickListener(view -> {
-            aumentaStatManual(personaje.aumentaDefensaFisica(),view,botonesManuales);
-        });
-        btnStatDefensaMagica.setOnClickListener(view -> {
-            aumentaStatManual(personaje.aumentaDefensaMagica(),view,botonesManuales);
-        });
-        btnStatPunteria.setOnClickListener(view -> {
-            aumentaStatManual(personaje.aumentaPunteria(),view,botonesManuales);
-        });
+        btnStatSalud.setOnClickListener(view -> aumentaStatManual(personaje.aumentaSalud(),view,botonesManuales));
+        btnStatAtaqueFisico.setOnClickListener(view -> aumentaStatManual(personaje.aumentaAtaqueFisico(),view,botonesManuales));
+        btnStatAtaqueMagico.setOnClickListener(view -> aumentaStatManual(personaje.aumentaAtaqueMagico(),view,botonesManuales));
+        btnStatDefensaFisica.setOnClickListener(view -> aumentaStatManual(personaje.aumentaDefensaFisica(),view,botonesManuales));
+        btnStatDefensaMagica.setOnClickListener(view -> aumentaStatManual(personaje.aumentaDefensaMagica(),view,botonesManuales));
+        btnStatPunteria.setOnClickListener(view -> aumentaStatManual(personaje.aumentaPunteria(),view,botonesManuales));
 
         btnContinuar.setOnClickListener(view -> avatarNombreDescripcion());
     }
@@ -223,10 +213,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
         fondoNombre.setOnTouchListener((view, motionEvent) -> {
              InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
              inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
-            if (inputNombre.getText().length()>0&&inputDescripcion.getText().length()>0)
-                btnNombreContinuar.setEnabled(true);
-            else
-                btnNombreContinuar.setEnabled(false);
+            btnNombreContinuar.setEnabled(inputNombre.getText().length() > 0 && inputDescripcion.getText().length() > 0);
             return false;
         });
 
@@ -234,20 +221,14 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
 
         inputNombre.setOnEditorActionListener((textView, i, keyEvent) -> {
             if (i == EditorInfo.IME_ACTION_DONE) {
-                if (inputNombre.getText().length()>0&&inputDescripcion.getText().length()>0)
-                    btnNombreContinuar.setEnabled(true);
-                else
-                    btnNombreContinuar.setEnabled(false);
+                btnNombreContinuar.setEnabled(inputNombre.getText().length() > 0 && inputDescripcion.getText().length() > 0);
             }
             return false;
         });
 
         inputDescripcion.setOnEditorActionListener((textView, i, keyEvent) -> {
             if (i == EditorInfo.IME_ACTION_DONE) {
-                if (inputNombre.getText().length()>0&&inputDescripcion.getText().length()>0)
-                    btnNombreContinuar.setEnabled(true);
-                else
-                    btnNombreContinuar.setEnabled(false);
+                btnNombreContinuar.setEnabled(inputNombre.getText().length() > 0 && inputDescripcion.getText().length() > 0);
             }
             return false;
         });
@@ -257,7 +238,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
             elijeRasgos();
         });
     }
-
+    //RASGOS
     private void elijeRasgos() {
         setContentView(R.layout.rasgos);
         CheckBox [] btnRasgos = new CheckBox[8];
@@ -287,7 +268,8 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
         }
 
 
-
+        Button btnRasgosContinuar = findViewById(R.id.btnRasgosContinuar);
+        btnRasgosContinuar.setOnClickListener(view -> verFichaDePersonaje());
 
     }
 
@@ -328,18 +310,18 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
         }
         //si hemos llegado a 3 marcados entonces desactivamos el resto
         if (personaje.getTraits().size()==3){
-            for(int i=0;i<btnRasgos.length;i++){
-                if (!btnRasgos[i].isChecked()) {
-                    btnRasgos[i].setEnabled(false);
-                    btnRasgos[i].setTextColor(getColor(R.color.rojo_oscuro));
+            for (CheckBox btnRasgo : btnRasgos) {
+                if (!btnRasgo.isChecked()) {
+                    btnRasgo.setEnabled(false);
+                    btnRasgo.setTextColor(getColor(R.color.rojo_oscuro));
                 }
             }
 
             findViewById(R.id.btnRasgosContinuar).setEnabled(true);
             //en caso contrario los habilitamos todos
         }else {
-            for (int i = 0; i < btnRasgos.length; i++) {
-                btnRasgos[i].setEnabled(true);
+            for (CheckBox btnRasgo : btnRasgos) {
+                btnRasgo.setEnabled(true);
             }
             findViewById(R.id.btnRasgosContinuar).setEnabled(false);
         }
@@ -379,6 +361,44 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
     }
 
 
+
+
+    //VER FICHA DE PERSONAJE
+    private void verFichaDePersonaje() {
+        setContentView(R.layout.ficha);
+        Button btnStatsManualContinuar = findViewById(R.id.btnStatsManualContinuar);
+        btnStatsManualContinuar.setOnClickListener(view -> elijeClase());
+
+        TextView lbNombre = findViewById(R.id.lbNombre);
+        TextView lbClase = findViewById(R.id.lbClase);
+        TextView lbBiografia = findViewById(R.id.lbBiografia);
+        ImageView imgAvatar = findViewById(R.id.imgAvatar);
+        ImageView imgGenero = findViewById(R.id.imgGenero);
+        lbNombre.setText(personaje.getNombre());
+        lbClase.setText(getString(personaje.getClase().nombre));
+        lbBiografia.setText(personaje.getBiografia());
+        imgAvatar.setImageResource(personaje.getAvatar());
+        imgGenero.setImageResource(personaje.getGenero().getIcono());
+
+        actualizarEtiquetasStats();
+        actualizarBarrasStats();
+
+        TextView lbRasgo1 = findViewById(R.id.lbRasgo1);
+        TextView lbRasgo1Desc = findViewById(R.id.lbRasgo1Desc);
+        TextView lbRasgo2 = findViewById(R.id.lbRasgo2);
+        TextView lbRasgo2Desc = findViewById(R.id.lbRasgo2Desc);
+        TextView lbRasgo3 = findViewById(R.id.lbRasgo3);
+        TextView lbRasgo3Desc = findViewById(R.id.lbRasgo3Desc);
+        ArrayList<EnumTrait> rasgos = personaje.getTraits();
+        lbRasgo1.setText(getString(rasgos.get(0).nombre));
+        lbRasgo1Desc.setText(getString(rasgos.get(0).descripcion));
+        lbRasgo2.setText(getString(rasgos.get(1).nombre));
+        lbRasgo2Desc.setText(getString(rasgos.get(1).descripcion));
+        lbRasgo3.setText(getString(rasgos.get(2).nombre));
+        lbRasgo3Desc.setText(getString(rasgos.get(2).descripcion));
+    }
+
+
     private void muestraToast(String msg) {
         Toast t = Toast.makeText(this, msg, Toast.LENGTH_LONG);
         t.show();
@@ -394,6 +414,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
 
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void afterTextChanged(Editable editable) {
         TextView lbCharRestantes = findViewById(R.id.lbCharRestantes);

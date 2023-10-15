@@ -6,8 +6,8 @@ public enum EnumClassType {
     enano(R.string.enano,2),
     orco(R.string.orco,3);
 
-    int nombre;
-    int id;
+    final int nombre;
+    final int id;
     EnumClassType(int nombre, int id) {
         this.nombre=nombre;
         this.id=id;

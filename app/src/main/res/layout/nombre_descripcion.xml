@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/ic_launcher_background"
     android:clickable="true"
-    android:focusableInTouchMode="true">
+    android:focusableInTouchMode="true"
+    android:focusable="true">
 
     <ImageView
         android:id="@+id/fondoNombre"
@@ -22,7 +23,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/fondo2"
-        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck"
+        android:focusable="true" />
 
     <TextView
         android:id="@+id/tituloSeccion"
@@ -68,6 +70,7 @@
             android:layout_height="200dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:contentDescription="@string/avatar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btnAvatarPosterior"
             app:layout_constraintStart_toEndOf="@+id/btnAvatarAnterior"
@@ -121,6 +124,7 @@
             android:hint="@string/elije_un_nombre"
             android:imeOptions="actionDone"
             android:inputType="text"
+            android:maxLength="20"
             android:padding="10dp"
             android:singleLine="true"
             android:textColor="@color/black"
