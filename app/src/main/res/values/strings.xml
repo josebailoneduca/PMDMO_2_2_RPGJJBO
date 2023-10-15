@@ -28,7 +28,7 @@
     <string name="honesto_desc">Mejores recompensas en las misiones y menores precios en la tienda del clan.</string>
     <string name="rapido">Rápidez</string>
     <string name="rapido_desc">Sus pies de gacela le permiten andar y atacar más rápido.</string>
-    <string name="musculoso">Musuloso</string>
+    <string name="musculoso">Musculoso</string>
     <string name="musculoso_desc">Cualquier cosa que requiera fuerza se le dará bien</string>
     <string name="empollon">Empollón</string>
     <string name="empollon_desc">Aprovecha las acciones para ganar mucha más experiencia</string>
@@ -47,9 +47,9 @@
     <string name="puntos_restantes">Puntos restantes:</string>
     <string name="sumar_punto">Sumar punto</string>
     <string name="debes_elegir_un_genero">Debes elegir un género\n</string>
-    <string name="nombre_y_descripcion">Nombre y descripción</string>
+    <string name="nombre_y_descripcion">Nombre y Biografía</string>
     <string name="elije_un_nombre">Elije un nombre</string>
-    <string name="descripcion">Descripción</string>
+    <string name="descripcion">Biografia</string>
     <string name="siguiente_avatar">Siguiente avatar</string>
     <string name="avatar_anterior">Avatar anterior</string>
     <string name="selecciona_3_rasgos_para_el_personaje">Selecciona 3 rasgos para el personaje</string>

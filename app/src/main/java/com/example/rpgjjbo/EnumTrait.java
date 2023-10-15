@@ -1,5 +1,8 @@
 package com.example.rpgjjbo;
 
+/**
+ * Enumerador de rasgos de personaje
+ */
 public enum EnumTrait {
     berserker(R.string.berserker,R.string.berserker_desc),
     cauteloso(R.string.cauteloso,R.string.cauteloso_desc),
@@ -10,7 +13,13 @@ public enum EnumTrait {
     musculoso(R.string.musculoso,R.string.musculoso_desc),
     empollon(R.string.empollon,R.string.empollon_desc);
 
+    /**
+     * nombre del rasgo
+     */
     final int nombre;
+    /**
+     * Descripcion del rasgo
+     */
     final int descripcion;
     EnumTrait(int nombre, int descripcion) {
         this.nombre=nombre;

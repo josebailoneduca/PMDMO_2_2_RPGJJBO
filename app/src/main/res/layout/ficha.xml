@@ -39,22 +39,32 @@
         android:layout_height="200dp"
         android:contentDescription="@string/avatar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lbNombre"
-        app:srcCompat="@drawable/h_m_1" />
+        app:layout_constraintTop_toBottomOf="@+id/lbNombre" />
 
     <TextView
         android:id="@+id/lbClase"
         android:layout_width="0dp"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/meat_f"
         android:gravity="center_vertical"
         android:textColor="@color/primario_light"
-        android:textSize="20sp"
+        android:textSize="34sp"
         app:layout_constraintEnd_toStartOf="@+id/imgGenero"
         app:layout_constraintStart_toEndOf="@+id/imgAvatar"
         app:layout_constraintTop_toBottomOf="@+id/lbNombre" />
+
+    <ImageView
+        android:id="@+id/imgGenero"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/crear_nuevo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbNombre"
+        app:tint="@color/primario_light" />
 
     <TextView
         android:id="@+id/lbBiografia"
@@ -512,31 +522,6 @@
     </TableLayout>
 
 
-    <Button
-        android:id="@+id/btnStatsManualContinuar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="@string/crear_nuevo_personaje"
-        app:icon="@android:drawable/ic_menu_add"
-        app:iconGravity="textEnd"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/imgGenero"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:contentDescription="@string/crear_nuevo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lbNombre"
-        app:srcCompat="@drawable/maleicon"
-        app:tint="@color/primario_light" />
-
     <TextView
         android:id="@+id/lbRasgo1"
         android:layout_width="wrap_content"
@@ -609,4 +594,17 @@
         app:layout_constraintEnd_toEndOf="@+id/imagenfondo"
         app:layout_constraintStart_toStartOf="@+id/imagenfondo"
         app:layout_constraintTop_toBottomOf="@+id/lbRasgo3" />
+
+    <Button
+        android:id="@+id/btnFichaNuevoPersonaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/crear_nuevo_personaje"
+        app:icon="@android:drawable/ic_menu_add"
+        app:iconGravity="textEnd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

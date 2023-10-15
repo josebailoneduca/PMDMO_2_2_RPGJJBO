@@ -3,6 +3,9 @@ package com.example.rpgjjbo;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Clase para almacenar todos los datos de personaje
+ */
 public class Personaje {
     private EnumClassType clase;
     private EnumGender genero;
@@ -17,16 +20,29 @@ public class Personaje {
     private int stat_salud=0;
     private ArrayList<EnumTrait> traits = new ArrayList<EnumTrait>();
 
+    /**
+     * Intentos de generacion de stats al azar
+     */
     private int intentosStatsAzar = 2;
+
+    /**
+     * Puntos aleatorios a distribuir
+     */
     private int puntosStatAleatorios=60;
+
+    /**
+     * Puntos manuales a distributir
+     */
     private int puntosStatManuales=10;
 
+    //GETTERS Y SETTERS
+
+    /**
+     * Devuelve los intentos de asignacion de stats al azar que quedan
+     * @return El numero de intentos
+     */
     public int getIntentosStatsAzar() {
         return intentosStatsAzar;
-    }
-
-    public void setIntentosStatsAzar(int intentosStatsAzar) {
-        this.intentosStatsAzar = intentosStatsAzar;
     }
 
     public EnumClassType getClase() {
@@ -73,36 +89,36 @@ public class Personaje {
         return stat_ataque_fisico;
     }
 
-
-
     public int getStat_ataque_magico() {
         return stat_ataque_magico;
     }
-
 
     public int getStat_defensa_fisica() {
         return stat_defensa_fisica;
     }
 
-
-
     public int getStat_defensa_magica() {
         return stat_defensa_magica;
     }
-
-
 
     public int getStat_punteria() {
         return stat_punteria;
     }
 
-
-
     public int getStat_salud() {
         return stat_salud;
     }
-
-
+    public int getPuntosStatManuales() {
+        return puntosStatManuales;
+    }
+    public ArrayList<EnumTrait> getTraits() {
+        return traits;
+    }
+    /**
+     * Aumenta en 1 el ataque fisico
+     *
+     * @return True si no se ha llegado al limite y quedan puntos. False si se ha llegado al limite o no quedan puntos
+     */
     public boolean aumentaAtaqueFisico() {
         if (this.stat_ataque_fisico<25&&this.puntosStatManuales>0) {
             this.stat_ataque_fisico++;
@@ -111,6 +127,11 @@ public class Personaje {
          }
         return false;
     }
+    /**
+     * Aumenta en 1 el ataque magico
+     *
+     * @return True si no se ha llegado al limite y quedan puntos. False si se ha llegado al limite o no quedan puntos
+     */
     public boolean aumentaAtaqueMagico() {
         if (this.stat_ataque_magico<25&&this.puntosStatManuales>0) {
             this.stat_ataque_magico++;
@@ -119,6 +140,11 @@ public class Personaje {
          }
         return false;
     }
+    /**
+     * Aumenta en 1 la defensa fisica
+     *
+     * @return True si no se ha llegado al limite y quedan puntos. False si se ha llegado al limite o no quedan puntos
+     */
     public boolean aumentaDefensaFisica() {
         if (this.stat_defensa_fisica<25&&this.puntosStatManuales>0) {
             this.stat_defensa_fisica++;
@@ -128,6 +154,11 @@ public class Personaje {
         return false;
     }
 
+    /**
+     * Aumenta en 1 el defensa magica
+     *
+     * @return True si no se ha llegado al limite y quedan puntos. False si se ha llegado al limite o no quedan puntos
+     */
     public boolean aumentaDefensaMagica() {
         if (this.stat_defensa_magica<25&&this.puntosStatManuales>0) {
             this.stat_defensa_magica++;
@@ -136,6 +167,11 @@ public class Personaje {
         }
         return false;
     }
+    /**
+     * Aumenta en 1 el punteria
+     *
+     * @return True si no se ha llegado al limite y quedan puntos. False si se ha llegado al limite o no quedan puntos
+     */
     public boolean aumentaPunteria() {
         if (this.stat_punteria<25&&this.puntosStatManuales>0) {
             this.stat_punteria++;
@@ -145,6 +181,11 @@ public class Personaje {
         return false;
     }
 
+    /**
+     * Aumenta en 1 la salud
+     *
+     * @return True si no se ha llegado al limite y quedan puntos. False si se ha llegado al limite o no quedan puntos
+     */
     public boolean aumentaSalud() {
         if (this.stat_salud<25&&this.puntosStatManuales>0) {
             this.stat_salud++;
@@ -154,10 +195,12 @@ public class Personaje {
         return false;
     }
 
-    public int getPuntosStatManuales() {
-        return puntosStatManuales;
-    }
 
+    /**
+     * Agrega un trait/rasgo
+     * @param trait El rasgo a agregar
+     * @return True si tiene menos de 3, false si tiene 3 o mas
+     */
     public boolean addTrait(EnumTrait trait) {
         if (this.traits.contains(trait) || this.traits.size() > 2)
             return false;
@@ -165,14 +208,18 @@ public class Personaje {
         return true;
     }
 
-    public ArrayList<EnumTrait> getTraits() {
-        return traits;
-    }
-
+    /**
+     * Borra los traits/rasgos del personaje
+     */
     public void resetTraits(){
         this.traits=new ArrayList<EnumTrait>();
     }
 
+    /**
+     * Genera aleatoriamente las stats del personaje si quedan intentos disponibles
+     *
+     * @return Cantidad de intentos restantes
+     */
     public int randomStats() {
         if (this.intentosStatsAzar == 0)
             return 0;
@@ -225,6 +272,9 @@ public class Personaje {
         return this.intentosStatsAzar;
     }
 
+    /**
+     * Pone las stats a 10
+     */
     private void resetStats() {
         stat_ataque_fisico = 10;
         stat_ataque_magico = 10;
