@@ -594,21 +594,19 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
     <Button
         android:id="@+id/btnStatsManualContinuar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
-        android:enabled="false"
+        android:enabled="true"
         android:text="@string/continuar"
         app:icon="@android:drawable/ic_media_play"
         app:iconGravity="textEnd"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 

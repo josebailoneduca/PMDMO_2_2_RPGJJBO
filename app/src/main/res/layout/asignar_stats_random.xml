@@ -34,6 +34,22 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
+    <TextView
+        android:id="@+id/explicacionSeccion3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/turquesaTransparente"
+        android:fontFamily="@font/meat"
+        android:maxLines="2"
+        android:padding="10dp"
+        android:text="@string/explicacion_caract_aleatoria"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tituloSeccion" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/statsLayout"
         android:layout_width="0dp"
@@ -43,7 +59,7 @@
         app:layout_constraintBottom_toTopOf="@+id/filaPuntosrestante"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tituloSeccion">
+        app:layout_constraintTop_toBottomOf="@+id/explicacionSeccion3">
 
         <LinearLayout
             android:id="@+id/filaSalud"
@@ -58,12 +74,12 @@
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0"
                 android:layout_marginStart="5dp"
+                android:layout_weight="0"
 
+                android:contentDescription="@string/salud"
                 app:srcCompat="@drawable/salud"
-                app:tint="@color/primario_light"
-                android:contentDescription="@string/salud" />
+                app:tint="@color/primario_light" />
 
             <TextView
                 android:id="@+id/lbSalud"
@@ -113,6 +129,7 @@
                 android:contentDescription="@string/ataque_fisico"
                 app:srcCompat="@drawable/ataque_fisico"
                 app:tint="@color/primario_light" />
+
             <TextView
                 android:id="@+id/lbAtaqueFisico"
                 android:layout_width="wrap_content"
@@ -161,6 +178,7 @@
                 android:contentDescription="@string/ataque_magico"
                 app:srcCompat="@drawable/ataque_magico"
                 app:tint="@color/primario_light" />
+
             <TextView
                 android:id="@+id/lbAtaqueMagico"
                 android:layout_width="wrap_content"
@@ -209,6 +227,7 @@
                 android:contentDescription="@string/defensa_fisica"
                 app:srcCompat="@drawable/defensa_fisica"
                 app:tint="@color/primario_light" />
+
             <TextView
                 android:id="@+id/lbDefensaFisica"
                 android:layout_width="wrap_content"
@@ -250,12 +269,13 @@
                 android:id="@+id/icoDefensaMagica"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0"
                 android:layout_marginStart="5dp"
+                android:layout_weight="0"
 
+                android:contentDescription="@string/defensa_magica"
                 app:srcCompat="@drawable/defensa_magica"
-                app:tint="@color/primario_light"
-                android:contentDescription="@string/defensa_magica" />
+                app:tint="@color/primario_light" />
+
             <TextView
                 android:id="@+id/lbDefensaMagica"
                 android:layout_width="wrap_content"
@@ -298,12 +318,13 @@
                 android:id="@+id/icoPunteria"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0"
                 android:layout_marginStart="5dp"
+                android:layout_weight="0"
 
+                android:contentDescription="@string/punteria"
                 app:srcCompat="@drawable/punteria"
-                app:tint="@color/primario_light"
-                android:contentDescription="@string/punteria" />
+                app:tint="@color/primario_light" />
+
             <TextView
                 android:id="@+id/lbPunteria"
                 android:layout_width="wrap_content"
@@ -418,7 +439,6 @@
         app:layout_constraintStart_toStartOf="parent"
 
         />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

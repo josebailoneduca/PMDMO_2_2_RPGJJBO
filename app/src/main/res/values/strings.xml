@@ -58,4 +58,5 @@
     <string name="avatar">Avatar</string>
     <string name="crear_nuevo_personaje">Crear nuevo personaje</string>
     <string name="crear_nuevo">Crear nuevo</string>
+    <string name="explicacion_caract_aleatoria">Pulsa el botón de lanzar dados para ajustar las características.</string>
 </resources>

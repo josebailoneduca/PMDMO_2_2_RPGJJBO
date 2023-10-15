@@ -78,9 +78,11 @@
                     android:id="@+id/inputBerserker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:checked="false"
                     android:text="@string/berserker"
                     android:textColor="#FFFFFF"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    app:centerIfNoTextEnabled="true" />
 
                 <ImageButton
                     android:id="@+id/btnInfoBerserker"
@@ -285,7 +287,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
-        android:enabled="false"
+        android:enabled="true"
         android:text="@string/continuar"
         app:icon="@android:drawable/ic_media_play"
         app:iconGravity="textEnd"

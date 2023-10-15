@@ -18,6 +18,8 @@ import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 
@@ -292,30 +294,14 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
         btnNombreContinuar.setEnabled(false);
         inputDescripcion.setRawInputType(InputType.TYPE_CLASS_TEXT); // para soportar multilinea y boton de terminar edicion
 
-        //listener de texto cambiado. Se encarga de ir actualizando la etiqueta de caracteres restantes
+        //listener de texto cambiado. Se encarga de ir actualizando la etiqueta de caracteres restantes y
+        //la visibilidad del boton de continuar
         inputDescripcion.addTextChangedListener(this);
 
         //soporte de ocultacion del teclado al tocar el fondo de la app
         fondoNombre.setOnTouchListener((view, motionEvent) -> {
              InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
              inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
-            btnNombreContinuar.setEnabled(inputNombre.getText().length() > 0 && inputDescripcion.getText().length() > 0);
-            return false;
-        });
-
-        //action listener para detectar el fin de edicion del nombre
-        inputNombre.setOnEditorActionListener((textView, i, keyEvent) -> {
-            if (i == EditorInfo.IME_ACTION_DONE) {
-                btnNombreContinuar.setEnabled(inputNombre.getText().length() > 0 && inputDescripcion.getText().length() > 0);
-            }
-            return false;
-        });
-
-        //action listener para detectar el fin de edicion de la biografia
-        inputDescripcion.setOnEditorActionListener((textView, i, keyEvent) -> {
-            if (i == EditorInfo.IME_ACTION_DONE) {
-                btnNombreContinuar.setEnabled(inputNombre.getText().length() > 0 && inputDescripcion.getText().length() > 0);
-            }
             return false;
         });
 
@@ -545,5 +531,13 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
     public void afterTextChanged(Editable editable) {
         TextView lbCharRestantes = findViewById(R.id.lbCharRestantes);
         lbCharRestantes.setText("("+(140-editable.length())+")");
+        Button btnNombreContinuar=findViewById(R.id.btnNombreContinuar);
+        EditText inputNombre=findViewById(R.id.inputNombre);
+        EditText inputDescripcion=findViewById(R.id.inputDescripcion);
+        btnNombreContinuar.setEnabled(inputNombre.getText().length() > 0 && inputDescripcion.getText().length() > 0);
+
+
     }
+
+
 }

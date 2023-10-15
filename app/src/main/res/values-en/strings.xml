@@ -61,4 +61,5 @@
     <!--ficha de personaje-->
     <string name="crear_nuevo_personaje">Crearte new character</string>
     <string name="crear_nuevo">Create new</string>
+    <string name="explicacion_caract_aleatoria">Tap the Roll Dices button to set up the stats.</string>
 </resources>
