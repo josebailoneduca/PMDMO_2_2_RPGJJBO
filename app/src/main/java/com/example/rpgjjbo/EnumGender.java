@@ -2,6 +2,8 @@ package com.example.rpgjjbo;
 
 /**
  * Enumerador de generos de personaje
+ *
+ * @author Jose J. Bailon Ortiz
  */
 public enum EnumGender {
     femenino(R.string.femenino,R.drawable.femaleicon,1),

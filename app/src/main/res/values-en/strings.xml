@@ -18,7 +18,7 @@
     <string name="masculino">Masculine</string>
     <!-- traits -->
     <string name="berserker">Berserker</string>
-    <string name="berserker_desc">Automaticaly attacks without receiving orders from the player.</string>
+    <string name="berserker_desc">Automatically attacks without receiving orders from the player.</string>
     <string name="cauteloso">Caution</string>
     <string name="cauteloso_desc">Cautious to the point of cowardice which causes him to suffer less damage in combat.</string>
     <string name="conductor_otto">Otto Driver</string>

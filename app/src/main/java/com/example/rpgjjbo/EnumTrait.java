@@ -2,6 +2,8 @@ package com.example.rpgjjbo;
 
 /**
  * Enumerador de rasgos de personaje
+ *
+ * @author Jose J. Bailon Ortiz
  */
 public enum EnumTrait {
     berserker(R.string.berserker,R.string.berserker_desc),

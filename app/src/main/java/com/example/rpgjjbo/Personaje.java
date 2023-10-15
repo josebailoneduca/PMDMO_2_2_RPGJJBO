@@ -5,6 +5,8 @@ import java.util.Random;
 
 /**
  * Clase para almacenar todos los datos de personaje
+ *
+ * @author Jose J. Bailon Ortiz
  */
 public class Personaje {
     private EnumClassType clase;
@@ -28,7 +30,7 @@ public class Personaje {
     /**
      * Puntos aleatorios a distribuir
      */
-    private int puntosStatAleatorios=60;
+    private int puntosStatAleatorios=30;
 
     /**
      * Puntos manuales a distributir
