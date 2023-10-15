@@ -9,4 +9,6 @@
     <color name="rojo">#FF0000</color>
     <color name="rojo_oscuro">#2C1919</color>
     <color name="turquesaTransparente">#CC001926</color>
+    <color name="m3_button_foreground_color_selector">@color/white</color>
+    <color name="m3_checkbox_button_icon_tint">@color/white</color>
 </resources>
