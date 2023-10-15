@@ -5,6 +5,8 @@ import java.util.Random;
 
 /**
  * Clase para almacenar todos los datos de personaje
+ *
+ * @author Jose J. Bailon Ortiz
  */
 public class Personaje {
     private EnumClassType clase;

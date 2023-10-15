@@ -2,6 +2,8 @@ package com.example.rpgjjbo;
 
 /**
  * Enumerador de tipos de clase de presonaje
+ *
+ * @author Jose J. Bailon Ortiz
  */
 public enum EnumClassType {
     humano(R.string.humano,0),

@@ -28,6 +28,8 @@ import java.util.ArrayList;
  * por las opciones de la aplicacion. Se encarga de ir cargando las pantallas y gestionar la logica
  * de las mismas almacenando los datos en un objeto de tipo Personaje. La logica de control de la seleccion
  * de avatar esta en una clase aparte SelectorAvatar
+ *
+ * @author Jose J. Bailon Ortiz
  */
 public class MainActivity extends AppCompatActivity implements TextWatcher {
 

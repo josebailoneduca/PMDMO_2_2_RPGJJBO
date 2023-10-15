@@ -8,6 +8,8 @@ import android.widget.ImageView;
 
 /**
  * Se encarga de gestionar la interfaz de seleccion de avatar
+ *
+ * @author Jose J. Bailon Ortiz
  */
 public class SelectorAvatar {
     /**
